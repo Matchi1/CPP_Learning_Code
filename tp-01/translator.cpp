@@ -8,37 +8,38 @@ using namespace std;
 
 bool parse_params(int argc, char* argv[], string& dict_path, string& word, string& translation,
                   vector<string>& sentence);
-vector<pair<string, string>> open_dictionary(char* path);
-void                         save_dictionary(char* path, vector<pair<string, string>> dict);
+vector<pair<string, string>> open_dictionary(string& path);
+void                         save_dictionary(string& path, vector<pair<string, string>> dict);
 void                         translate(vector<string>& sentence, vector<pair<string, string>> dict);
 
 int main(int argc, char* argv[])
 {
-    const char* dict_path, word, translation, sentence;
+    string dict_path, word, translation;
+    vector<string> sentence;
 
-    if (!parse_params(argc, argv, dict_path, translation, sentence))
+    if (!parse_params(argc, argv, dict_path, word, translation, sentence))
     {
         return -1;
     }
 
     vector<pair<string, string>> dict;
 
-    if (dict_path)
+    if (dict_path != "")
     {
         dict = open_dictionary(dict_path);
     }
 
-    if (word && translation)
+    if (word != "" && translation != "")
     {
         dict.emplace_back(word, translation);
 
-        if (dict_path)
+        if (dict_path != "")
         {
             save_dictionary(dict_path, dict);
         }
     }
 
-    if (sentence)
+    if (sentence.empty())
     {
         translate(sentence, dict);
     }
@@ -51,7 +52,7 @@ bool parse_params(int argc, char* argv[], string& dict_path, string& word, strin
 {
     for (auto i = 1; i < argc; ++i)
     {
-        std::string option = argv[i];
+        string option = argv[i];
 
         if (option == "-d" && (i + 1) < argc)
         {
@@ -92,7 +93,7 @@ vector<pair<string, string>> open_dictionary(char* path)
         string translation;
         file >> translation;
 
-        dict[++i] = pair { word, translation };
+        dict[++i] = { word, translation };
     }
 
     return dict;
