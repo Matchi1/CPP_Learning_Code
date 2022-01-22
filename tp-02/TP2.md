@@ -35,6 +35,10 @@ int main()
 }
 ```
 
+# Solution
+
+on affiche 5 et 2
+
 2. Que se passe si on enlève la ligne marquée "initialisation" ?
 
 ## Exercice 2 - Copies

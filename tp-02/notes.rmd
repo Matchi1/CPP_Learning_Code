@@ -1,0 +1,11 @@
+# Exercice 1
+
+1. on affiche 5 et 2
+2. On a une valeur indéfinie, la variable peut prendre n'importe quelle valeur
+
+# Exercice 2
+
+1. Il n'est pas possible de l'initialiser avec `= {26, 0}` car `_count` est private
+   on doit écrire une méthode qui va permettre d'initialiser à partir d'un tableau
+
+3. le constructeur a été appelé qu'une seule fois 
