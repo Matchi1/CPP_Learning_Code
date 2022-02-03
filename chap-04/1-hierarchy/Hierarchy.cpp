@@ -1,6 +1,7 @@
 #include "Boss.h"
 #include "Intern.h"
 #include "Staff.h"
+#include "Worker.h"
 
 #include <cstdio>
 

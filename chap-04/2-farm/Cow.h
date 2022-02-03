@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-class Cow
+class Cow : public Animal
 {
 public:
-    void sing() const { std::cout << "Mewwwwwh" << std::endl; }
+    void sing(char separator) const override { std::cout << "Mewwwwwh" << separator; }
 };
