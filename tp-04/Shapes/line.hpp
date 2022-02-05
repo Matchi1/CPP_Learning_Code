@@ -1,4 +1,3 @@
-
 #pragma once
 #include "point.hpp"
 #include "shape.hpp"
@@ -45,6 +44,13 @@ public:
         }
         return {};
     }
+
+    PointContainer intersect(const Shape& shape) const override
+    { 
+	    return shape.intersect(*this);
+    }
+
+    std::ostream& print(std::ostream& os) const override { return os << "Line"; }
 
     ~Line() = default;
 };

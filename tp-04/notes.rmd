@@ -1,0 +1,16 @@
+# Exercice 1
+
+## Question 1
+
+`const Person` -> copie de la valeur dans une variable local
+`const Person&` -> référence à une variable
+On copie donc la référence à l'objet, donc si l'objet Person est supprimé, la zone mémoire n'est plus accessible à
+partir de l'objet Phone
+l'object Phone n'est donc pas owner de l'objet Person
+
+## Question 5
+
+le polymorphisme
+
+## Question 3
+## Question 4
