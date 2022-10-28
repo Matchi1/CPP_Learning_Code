@@ -9,6 +9,21 @@ public:
         : _name { name }
         , _species { species }
     {}
+    bool operator<(const ComparableDog& other) const
+    {
+        if (_name < other._name)
+        {
+            return true;
+        }
+        else if (_name > other._name)
+        {
+            return false;
+        }
+        else
+        {
+            return _species < other._species;
+        }
+    }
 
 private:
     std::string _name;

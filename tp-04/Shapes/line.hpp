@@ -28,7 +28,7 @@ public:
     // dir1.y * dir2.x * b + dir1.y * (offset2.x - offset1.x) = dir1.x * dir2.y * b + dir1.x * (offset2.y -
     // offset1.y) that is: b = (dir1.x * (offset2.y - offset1.y) - dir1.y * (offset2.x - offset1.x)) / (dir1.y
     // * dir2.x - dir1.x * dir2.y)
-    PointContainer intersect(const Line& ln) const override
+    virtual PointContainer intersect(const Line& ln) const override
     {
         const Point dir1 = direction().normalized();
         const Point dir2 = ln.direction().normalized();
@@ -50,7 +50,9 @@ public:
 	    return shape.intersect(*this);
     }
 
-    std::ostream& print(std::ostream& os) const override { return os << "Line"; }
+    std::ostream& print(std::ostream& os) const override {
+        return os << "Line" << first << " & " << last;
+    }
 
     ~Line() = default;
 };
